@@ -2,4 +2,14 @@
     <string name="app_name">DragAndDropOne</string>
     <string name="draggable_text">drag me text</string>
     <string name="draggable_button">drag me button</string>
+    <string name="task_text">Вася между Федей и Митей. Дима рядом с Сеней. Федя не первый и не последний. Вася второй. Дима сразу после Феди. Раздай мальчикам их шапки.</string>
+
+
+    <string name="vasya">Вася</string>
+    <string name="fedya">Федя</string>
+    <string name="mitya">Mитя</string>
+    <string name="dima">Дима</string>
+    <string name="senya">Сеня</string>
+
+
 </resources>

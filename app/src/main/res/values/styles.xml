@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="hat_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">7dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
 </resources>

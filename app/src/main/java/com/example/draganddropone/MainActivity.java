@@ -2,15 +2,11 @@ package com.example.draganddropone;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,24 +16,25 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnDragListener, View.OnLongClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private ImageView imageView;
 
     private TextView textViewOne;
     private TextView textViewTwo;
     private TextView textViewThree;
-
-    private LinearLayout bottonLeftttContainer;
-    private LinearLayout bottonMiddleContainer;
-    private LinearLayout bottonRighttContainer;
-
-    private static final String IMAGE_VIEW_TAG = "LAUNCHER LOGO";
-    private static final String TEXT_VIEW_TAG = "DRAG TEXT";
-    private static final String BUTTON_VIEW_TAG = "DRAG BUTTON";
+    private TextView textViewFour;
+    private TextView textViewFive;
 
 
-    private static final String TEXT_VIEW_ONE_TAG = "DRAG 1";
-    private static final String TEXT_VIEW_TWO_TAG = "DRAG 2";
-    private static final String TEXT_VIEW_THREE_TAG = "DRAG 3";
+    private LinearLayout dropSlotOne;
+    private LinearLayout dropSlotThree;
+    private LinearLayout dropSlotTwo;
+    private LinearLayout dropSlotFour;
+    private LinearLayout dropSlotFive;
+
+    private String vasya = "Вася";
+    private String mitya = "Митя";
+    private String dima = "Дима";
+    private String senya = "Сеня";
+    private String fedya = "Федя";
 
 
     @Override
@@ -51,40 +48,56 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
     //Find all views and set Tag to all draggable views
     private void findViews() {
 
-        imageView = (ImageView) findViewById(R.id.image_view);
-        imageView.setTag(IMAGE_VIEW_TAG);
+        textViewOne = findViewById(R.id.hat_one);
+        textViewOne.setTag(vasya);
+        textViewOne.setText(vasya.substring(0,1));
 
-        textViewOne = findViewById(R.id.num_one);
-        textViewOne.setTag(TEXT_VIEW_ONE_TAG);
-        textViewTwo = findViewById(R.id.num_two);
-        textViewTwo.setTag(TEXT_VIEW_TWO_TAG);
-        textViewThree = findViewById(R.id.num_three);
-        textViewThree.setTag(TEXT_VIEW_THREE_TAG);
+        textViewTwo = findViewById(R.id.hat_two);
+        textViewTwo.setTag(mitya);
+        textViewTwo.setText(mitya.substring(0,1));
+
+        textViewThree = findViewById(R.id.hat_three);
+        textViewThree.setTag(dima);
+        textViewThree.setText(dima.substring(0,1));
+
+        textViewFour = findViewById(R.id.hat_four);
+        textViewFour.setTag(senya);
+        textViewFour.setText(senya.substring(0,1));
+
+        textViewFive = findViewById(R.id.hat_five);
+        textViewFive.setTag(fedya);
+        textViewFive.setText(fedya.substring(0,1));
     }
 
 
     //Implement long click and drag listener
     private void implementEvents() {
         //add or remove any view that you don't want to be dragged
-        imageView.setOnLongClickListener(this);
 
         textViewOne.setOnLongClickListener(this);
         textViewTwo.setOnLongClickListener(this);
         textViewThree.setOnLongClickListener(this);
+        textViewFour.setOnLongClickListener(this);
+        textViewFive.setOnLongClickListener(this);
 
         //add or remove any layout view that you don't want to accept dragged view
-        findViewById(R.id.top_layout).setOnDragListener(this);
-        //findViewById(R.id.middle_layout).setOnDragListener(this);
+        findViewById(R.id.choises_basket_layout).setOnDragListener(this);
 
 
-        bottonLeftttContainer = findViewById(R.id.bottom_left_layout);
-        bottonLeftttContainer.setOnDragListener(this);
+        dropSlotOne = findViewById(R.id.drop_slot_one);
+        dropSlotOne.setOnDragListener(this);
 
-        bottonMiddleContainer = findViewById(R.id.bottom_right_layout);
-        bottonMiddleContainer.setOnDragListener(this);
+        dropSlotTwo = findViewById(R.id.drop_slot_two);
+        dropSlotTwo.setOnDragListener(this);
 
-        bottonRighttContainer = findViewById(R.id.bottom_middle_layout);
-        bottonRighttContainer.setOnDragListener(this);
+        dropSlotThree = findViewById(R.id.drop_slot_three);
+        dropSlotThree.setOnDragListener(this);
+
+        dropSlotFour = findViewById(R.id.drop_slot_four);
+        dropSlotFour.setOnDragListener(this);
+
+        dropSlotFive = findViewById(R.id.drop_slot_five);
+        dropSlotFive.setOnDragListener(this);
     }
 
     @Override
@@ -152,7 +165,9 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 // Applies a YELLOW or any color tint to the View, when the dragged view entered into drag acceptable view
                 // Return true; the return value is ignored.
 
-                view.getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN);
+//todo
+                //view.getBackground().setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.YELLOW, BlendModeCompat.SRC_ATOP));
+                //view.getBackground().setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN);
 
                 // Invalidate the view to force a redraw in the new tint
                 view.invalidate();
@@ -167,13 +182,14 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 //  view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
 
                 //If u had not provided any color in ACTION_DRAG_STARTED then clear color filter.
-                view.getBackground().clearColorFilter();
+                //todo
+//                view.getBackground().clearColorFilter();
                 // Invalidate the view to force a redraw in the new tint
                 view.invalidate();
 
-
-
                 return true;
+
+
             case DragEvent.ACTION_DROP:
                 // Gets the item containing the dragged data
                 ClipData.Item item = event.getClipData().getItemAt(0);
@@ -182,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 String dragData = item.getText().toString();
 
                 // Displays a message containing the dragged data.
-                Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
 
                 // Turns off any color tints
                 view.getBackground().clearColorFilter();
@@ -207,7 +223,9 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
 
             case DragEvent.ACTION_DRAG_ENDED:
                 // Turns off any color tinting
-                view.getBackground().clearColorFilter();
+//todo
+
+//                view.getBackground().clearColorFilter();
 
                 // Invalidates the view to force a redraw
                 view.invalidate();
@@ -220,21 +238,21 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
 
 
                 //Does a getResult(), and displays what happened.
-                if (event.getResult())
-                {
-                    Toast.makeText(this, "The drop was handled.", Toast.LENGTH_SHORT).show();
-                }
-
-                else
-                {
-                    Toast.makeText(this, "The drop didn't work.", Toast.LENGTH_SHORT).show();
-                    View vi = (View) event.getLocalState();
-                    vi.setVisibility(View.VISIBLE);
-                }
+//                if (event.getResult())
+//                {
+//                    Toast.makeText(this, "The drop was handled.", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                else
+//                {
+//                    Toast.makeText(this, "The drop didn't work.", Toast.LENGTH_SHORT).show();
+//                    View vi = (View) event.getLocalState();
+//                    vi.setVisibility(View.VISIBLE);
+//                }
 
                 if(isOrderCorrect())
                 {
-                    Toast.makeText(this, "YES! THE ORDER IS 123.\nyou are my hero!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "ВЕРНО! \nСпасибо, главный\nтестировщик Мила", Toast.LENGTH_SHORT).show();
 
                 }
                 // returns true; the value is ignored.
@@ -246,23 +264,19 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 break;
         }
         return false;
-
     }
 
-    //todo
-    private boolean dropIsSuccessful() {
-        return true;
-    }
 
     private boolean isOrderCorrect() {
         boolean isCorrect = false;
         //if left contains textviewone && middle contains ... => isCorrect = true;
 
-        if(findViewById(R.id.bottom_left_layout).findViewById(R.id.num_one) != null
-            && findViewById(R.id.bottom_middle_layout).findViewById(R.id.num_two) != null
-            && findViewById(R.id.bottom_right_layout).findViewById(R.id.num_three) != null)
+        if(findViewById(R.id.drop_slot_one).findViewWithTag(mitya) != null
+            && findViewById(R.id.drop_slot_two).findViewWithTag(vasya) != null
+            && findViewById(R.id.drop_slot_three).findViewWithTag(fedya) != null
+            && findViewById(R.id.drop_slot_four).findViewWithTag(dima) != null
+            && findViewById(R.id.drop_slot_five).findViewWithTag(senya) != null)
         {
-            Log.d("isCorrect", "one");
             isCorrect = true;
         }
 

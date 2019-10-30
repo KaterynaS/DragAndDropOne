@@ -4,63 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="5dp"
     tools:context=".MainActivity">
 
+
+    <!-- task_description_container -->
     <LinearLayout
-        android:id="@+id/top_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/blue"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/num_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="#3D3D3D"
-            android:textSize="35sp" />
-
-        <TextView
-            android:id="@+id/num_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="#3D3D3D"
-            android:textSize="35sp" />
-
-        <TextView
-            android:id="@+id/num_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="#3D3D3D"
-            android:textSize="35sp" />
-
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/middle_layout"
+        android:id="@+id/task_description_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/violet"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:orientation="horizontal" >
 
+        <TextView
+            android:id="@+id/task_description_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/task_text"
+            android:gravity="center"
+            android:textSize="26sp"
+            />
+
+    </LinearLayout>
+
+
+    <!-- hat_slots -->
     <LinearLayout
-        android:id="@+id/yellowLayout"
+        android:id="@+id/hat_slots"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -68,31 +39,112 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/bottom_left_layout"
+            android:id="@+id/drop_slot_one"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/ic_men"
             android:gravity="center"
             android:orientation="vertical" />
 
         <LinearLayout
-            android:id="@+id/bottom_middle_layout"
+            android:id="@+id/drop_slot_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ED9866"
+            android:background="@drawable/ic_men"
             android:gravity="center"
             android:orientation="vertical" />
 
         <LinearLayout
-            android:id="@+id/bottom_right_layout"
+            android:id="@+id/drop_slot_three"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@drawable/ic_men"
             android:gravity="center"
             android:orientation="vertical" />
+
+
+        <LinearLayout
+            android:id="@+id/drop_slot_four"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ic_men"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+
+        <LinearLayout
+            android:id="@+id/drop_slot_five"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ic_men"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+
+    <!-- choises_basket_layout -->
+    <LinearLayout
+        android:id="@+id/choises_basket_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hat_one"
+            android:background="@drawable/ic_hat_one"
+            android:backgroundTint="#7CB342"
+            android:layout_width="@dimen/hat_size"
+            android:layout_height="@dimen/hat_size"
+            style="@style/hat_style"
+            android:text="1"/>
+
+        <TextView
+            android:id="@+id/hat_two"
+            android:background="@drawable/ic_sport_hat"
+            android:backgroundTint="#ED4541"
+            android:layout_width="@dimen/hat_size"
+            android:layout_height="@dimen/hat_size"
+            style="@style/hat_style"
+            android:text="2"/>
+
+        <TextView
+            android:id="@+id/hat_three"
+            android:background="@drawable/ic_wool_hat"
+            android:backgroundTint="#1E78E5"
+            android:layout_width="@dimen/hat_size"
+            android:layout_height="@dimen/hat_size"
+            android:text="3"
+            style="@style/hat_style" />
+
+
+        <TextView
+            android:id="@+id/hat_four"
+            android:background="@drawable/ic_witch_hat"
+            android:backgroundTint="#FFB300"
+            android:layout_width="@dimen/hat_size"
+            android:layout_height="@dimen/hat_size"
+            android:text="4"
+            style="@style/hat_style" />
+
+
+
+        <TextView
+            android:id="@+id/hat_five"
+            android:background="@drawable/ic_student_hat"
+            android:backgroundTint="#5E35B1"
+            android:layout_width="@dimen/hat_size"
+            android:layout_height="@dimen/hat_size"
+            android:text="5"
+            style="@style/hat_style" />
+
     </LinearLayout>
 
 
