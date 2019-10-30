@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
     private TextView textViewFive;
 
 
+    private LinearLayout choisesBasket;
+
     private LinearLayout dropSlotOne;
     private LinearLayout dropSlotThree;
     private LinearLayout dropSlotTwo;
@@ -81,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
         textViewFive.setOnLongClickListener(this);
 
         //add or remove any layout view that you don't want to accept dragged view
-        findViewById(R.id.choises_basket_layout).setOnDragListener(this);
-
+        choisesBasket = findViewById(R.id.choises_basket_layout);
+        choisesBasket.setOnDragListener(this);
 
         dropSlotOne = findViewById(R.id.drop_slot_one);
         dropSlotOne.setOnDragListener(this);
@@ -157,8 +159,9 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                     return true;
                 }
 
-                // Returns false. During the current drag and drop operation, this View will
+                //todo Returns false. During the current drag and drop operation, this View will
                 // not receive events again until ACTION_DRAG_ENDED is sent.
+                //findViewById(R.id.task_description_textview);
                 return false;
 
             case DragEvent.ACTION_DRAG_ENTERED:
@@ -185,6 +188,8 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 //todo
 //                view.getBackground().clearColorFilter();
                 // Invalidate the view to force a redraw in the new tint
+
+
                 view.invalidate();
 
                 return true;
@@ -201,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
 //                Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
 
                 // Turns off any color tints
-                view.getBackground().clearColorFilter();
+//                view.getBackground().clearColorFilter();
 
                 // Invalidates the view to force a redraw
                 view.invalidate();
@@ -212,11 +217,15 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 //todo if drop is successful owner.removeView(v)
                 //remove the dragged view
 
-
                 owner.removeView(v);
-                LinearLayout container = (LinearLayout) view;//caste the view into LinearLayout as our drag acceptable layout is LinearLayout
-                container.addView(v);//Add the dragged view
-                v.setVisibility(View.VISIBLE);//finally set Visibility to VISIBLE
+                //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
+                LinearLayout container = (LinearLayout) view;
+                //Add the dragged view
+                container.addView(v);
+                //finally set Visibility to VISIBLE
+                v.setVisibility(View.VISIBLE);
+
+
 
                 // Returns true. DragEvent.getResult() will return true.
                 return true;
@@ -230,6 +239,11 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 // Invalidates the view to force a redraw
                 view.invalidate();
 
+                if (dropEventNotHandled(event)) {
+
+                    View vi = (View) event.getLocalState();
+                    vi.setVisibility(View.VISIBLE);
+                }
 
 
 
@@ -264,6 +278,13 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
                 break;
         }
         return false;
+    }
+
+
+    private boolean dropEventNotHandled(DragEvent dragEvent) {
+
+        return !dragEvent.getResult();
+
     }
 
 

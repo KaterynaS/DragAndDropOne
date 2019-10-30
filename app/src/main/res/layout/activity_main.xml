@@ -91,7 +91,7 @@
     <!-- choises_basket_layout -->
     <LinearLayout
         android:id="@+id/choises_basket_layout"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
@@ -99,51 +99,50 @@
 
         <TextView
             android:id="@+id/hat_one"
-            android:background="@drawable/ic_hat_one"
-            android:backgroundTint="#7CB342"
+            style="@style/hat_style"
             android:layout_width="@dimen/hat_size"
             android:layout_height="@dimen/hat_size"
-            style="@style/hat_style"
-            android:text="1"/>
+            android:background="@drawable/ic_hat_one"
+            android:backgroundTint="#7CB342"
+            android:text="1" />
 
         <TextView
             android:id="@+id/hat_two"
-            android:background="@drawable/ic_sport_hat"
-            android:backgroundTint="#ED4541"
+            style="@style/hat_style"
             android:layout_width="@dimen/hat_size"
             android:layout_height="@dimen/hat_size"
-            style="@style/hat_style"
-            android:text="2"/>
+            android:background="@drawable/ic_sport_hat"
+            android:backgroundTint="#ED4541"
+            android:text="2" />
 
         <TextView
             android:id="@+id/hat_three"
-            android:background="@drawable/ic_wool_hat"
-            android:backgroundTint="#1E78E5"
+            style="@style/hat_style"
             android:layout_width="@dimen/hat_size"
             android:layout_height="@dimen/hat_size"
-            android:text="3"
-            style="@style/hat_style" />
+            android:background="@drawable/ic_wool_hat"
+            android:backgroundTint="#1E78E5"
+            android:text="3" />
 
 
         <TextView
             android:id="@+id/hat_four"
-            android:background="@drawable/ic_witch_hat"
-            android:backgroundTint="#FFB300"
+            style="@style/hat_style"
             android:layout_width="@dimen/hat_size"
             android:layout_height="@dimen/hat_size"
-            android:text="4"
-            style="@style/hat_style" />
-
+            android:background="@drawable/ic_witch_hat"
+            android:backgroundTint="#FFB300"
+            android:text="4" />
 
 
         <TextView
             android:id="@+id/hat_five"
-            android:background="@drawable/ic_student_hat"
-            android:backgroundTint="#5E35B1"
+            style="@style/hat_style"
             android:layout_width="@dimen/hat_size"
             android:layout_height="@dimen/hat_size"
-            android:text="5"
-            style="@style/hat_style" />
+            android:background="@drawable/ic_student_hat"
+            android:backgroundTint="#5E35B1"
+            android:text="5" />
 
     </LinearLayout>
 
